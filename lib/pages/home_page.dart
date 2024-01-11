@@ -28,6 +28,12 @@ class HomePage extends StatelessWidget {
                 onTap: () {
                   Navigator.pushNamed(context, '/bloc_counter');
                 },
+              ),
+              MyListTile(
+                title: 'Cubit To do',
+                onTap: () {
+                  Navigator.pushNamed(context, '/todo');
+                },
               )
             ],
           ),
