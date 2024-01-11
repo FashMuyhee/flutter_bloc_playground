@@ -47,7 +47,9 @@ class _BlocCounterPageState extends State<BlocCounterPage> {
             height: 20,
           ),
           FloatingActionButton(
-            onPressed: () {},
+            onPressed: () {
+              counterBloc.add(CounterDecremented());
+            },
             heroTag: 'bloc_dec',
             backgroundColor: Colors.greenAccent,
             child: const Icon(Icons.remove),
