@@ -18,7 +18,7 @@ class _CubitCounterPageState extends State<CubitCounterPage> {
       appBar: AppBar(
         title: const Text('Cubit Counter'),
         centerTitle: true,
-        backgroundColor: Colors.purple,
+        backgroundColor: Colors.teal,
         titleTextStyle: const TextStyle(color: Colors.white),
       ),
       body: Center(
@@ -34,6 +34,8 @@ class _CubitCounterPageState extends State<CubitCounterPage> {
         children: [
           FloatingActionButton(
             onPressed: counterCubit.increment,
+            heroTag: 'cubit_inc',
+            backgroundColor: Colors.tealAccent,
             child: const Icon(Icons.add),
           ),
           const SizedBox(
@@ -41,6 +43,8 @@ class _CubitCounterPageState extends State<CubitCounterPage> {
           ),
           FloatingActionButton(
             onPressed: counterCubit.decrement,
+            heroTag: 'cubit_dec',
+            backgroundColor: Colors.tealAccent,
             child: const Icon(Icons.minimize),
           )
         ],
