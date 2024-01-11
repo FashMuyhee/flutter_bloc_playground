@@ -1,3 +1,4 @@
+import 'package:bloc_playground/pages/bloc_counter_page.dart';
 import 'package:bloc_playground/pages/cubit_counter_page.dart';
 import 'package:bloc_playground/pages/home_page.dart';
 import 'package:flutter/material.dart';
@@ -13,10 +14,12 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(useMaterial3: true),
+      debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
         '/': (context) => const HomePage(),
-        '/cubit_counter': (contenxt) => const CubitCounterPage(),
+        '/cubit_counter': (context) => const CubitCounterPage(),
+        '/bloc_counter': (context) => const BlocCounterPage(),
       },
     );
   }
