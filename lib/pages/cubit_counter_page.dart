@@ -1,4 +1,6 @@
+import 'package:bloc_playground/cubit/counter_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CubitCounterPage extends StatefulWidget {
   const CubitCounterPage({super.key});
@@ -8,12 +10,7 @@ class CubitCounterPage extends StatefulWidget {
 }
 
 class _CubitCounterPageState extends State<CubitCounterPage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    _counter++;
-    setState(() {});
-  }
+  final counterCubit = CounterCubit();
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +22,28 @@ class _CubitCounterPageState extends State<CubitCounterPage> {
         titleTextStyle: const TextStyle(color: Colors.white),
       ),
       body: Center(
-        child: Text('Counter is $_counter'),
+        child: BlocBuilder<CounterCubit, int>(
+          bloc: counterCubit,
+          builder: (context, state) {
+            return Text('Counter is $state');
+          },
+        ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        child: const Icon(Icons.add),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: counterCubit.increment,
+            child: const Icon(Icons.add),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          FloatingActionButton(
+            onPressed: counterCubit.decrement,
+            child: const Icon(Icons.minimize),
+          )
+        ],
       ),
     );
   }
