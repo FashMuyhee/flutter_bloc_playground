@@ -1,7 +1,8 @@
-import 'package:bloc_playground/pages/home_page.dart';
-import 'package:bloc_playground/pages/todo/todo_list_page.dart';
 import 'package:flutter/material.dart';
 
+import 'pages/home_page.dart';
+import 'pages/todo/add_todo_page.dart';
+import 'pages/todo/todo_list_page.dart';
 import 'pages/counter/bloc_page.dart';
 import 'pages/counter/cubit_page.dart';
 
@@ -23,6 +24,7 @@ class MainApp extends StatelessWidget {
         '/cubit_counter': (context) => const CubitCounterPage(),
         '/bloc_counter': (context) => const BlocCounterPage(),
         '/todo': (context) => const TodoListPage(),
+        '/add_todo': (context) => const AddTodoPage(),
       },
     );
   }
