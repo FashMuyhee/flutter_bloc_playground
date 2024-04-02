@@ -1,4 +1,6 @@
+import 'package:bloc_playground/cubit/todo/todo_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AddTodoPage extends StatefulWidget {
   const AddTodoPage({Key? key}) : super(key: key);
@@ -9,6 +11,12 @@ class AddTodoPage extends StatefulWidget {
 
 class _AddTodoPageState extends State<AddTodoPage> {
   final titleController = TextEditingController();
+  final todoCubit = TodoCubit();
+
+  void onAddTodo() {
+    context.read<TodoCubit>().addTodo(titleController.text);
+    Navigator.pop(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +52,7 @@ class _AddTodoPageState extends State<AddTodoPage> {
             Container(
               margin: const EdgeInsets.only(top: 30),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: onAddTodo,
                 style: ElevatedButton.styleFrom(
                     minimumSize: const Size(double.infinity, 50), //////// HERE
                     backgroundColor: Colors.blue[500]),
