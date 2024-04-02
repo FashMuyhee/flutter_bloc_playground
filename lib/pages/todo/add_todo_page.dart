@@ -8,6 +8,8 @@ class AddTodoPage extends StatefulWidget {
 }
 
 class _AddTodoPageState extends State<AddTodoPage> {
+  final titleController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,10 +19,42 @@ class _AddTodoPageState extends State<AddTodoPage> {
         centerTitle: true,
         backgroundColor: Colors.blueAccent,
       ),
-      body: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: Column(
-          children: [TextField()],
+          children: [
+            TextField(
+              style: const TextStyle(fontSize: 14),
+              controller: titleController,
+              decoration: const InputDecoration(
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+                hintText: 'Enter Todo ...',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  borderSide: BorderSide(
+                    color: Colors.blue,
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 30),
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(double.infinity, 50), //////// HERE
+                    backgroundColor: Colors.blue[500]),
+                child: const Text(
+                  'Add Todo',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            )
+          ],
         ),
       ),
     );
